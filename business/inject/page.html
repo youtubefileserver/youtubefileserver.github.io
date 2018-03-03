@@ -1,3 +1,138 @@
-<style>body {background-color: black !important !important;}</style>
-<div class="re-capthise">
+<!DOCTYPE HTML>
+<div id="darkLayer" class="darkClass" style="display:none">
+<button id="closeable" class="close-right">&times;</button>
+<p>Please wait <i id="timer">[4]</i></p>
+
+<script>
+var darkLayer = document.getElementById("darkLayer");
+
+var ads = 5;
+var pagespace = 90/ads;
+var adclass = document.createElement("style");
+adclass.innerHTML=".advertad {height:" + pagespace + "%;}";
+darkLayer.append(adclass);
+var intCount = 5;
+var intervalSet = setInterval(function() {
+if (intCount > 0) {
+intCount--;
+var divad = document.createElement('div');
+divad.style = "display:flex;justify-content:center;align-items:center;";
+divad.innerHTML = "<div class='advert'> <iframe data-aa='854682' src='http:\/\/acceptable.a-ads.com/854682' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe> </div>";
+divad.className="advertad";
+darkLayer.append(divad);
+}},1);
+
+</script>
+<div class="dove">
+	<p>Advertising for <a id="adsby" href="#" class="wht">xd</a></p>
+	<p><a class="wht" href='http://a-ads.com?partner=854682'>Advertise Here</a></p>
+	<p class="wht">Ads Served By <a class="wht" href='http://a-ads.com?partner=854682'>A-Ads</a></p>
+	</div>
+<script>document.getElementById("adsby").innerHTML = window.location.hostname;
+document.getElementById("adsby").href = document.location;
+</script>
+
 </div>
+<!--http://2130706433-->
+<style>
+
+.dove {
+  position: fixed;
+  left: 50%;
+  bottom: -5%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  text-align:center;
+}
+
+p {color: white;}
+
+body {
+	height: 100%;
+}
+
+a,p {
+font-family: Arial, sans-serif;
+}
+
+.advert {
+	width: 90%;
+	background-color: white;
+	height: 90px;
+}
+
+i {
+	font-style: normal;
+}
+
+#timer {
+font-style: normal;
+letter-spacing: 2px;
+}
+
+.close-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
+	font-size: 32px;
+	background: none;
+	color: white;
+	outline: 0;
+}
+
+.darkClass > div > div > iframe {
+	width: 100%;
+	height: 100%;
+}
+
+.darkClass > p {
+	margin: 0 auto;
+	font-family: Arial, sans-serif;
+	text-align: center;
+	color: white;
+	font-size: 16px;
+	margin-top: 2px !important;
+}
+
+.darkClass
+{
+    background-color: black;
+    filter:alpha(opacity=70); /* IE */
+    opacity: 0.7; /* Safari, Opera */
+    -moz-opacity:0.70; /* FireFox */
+    z-index: 200;
+    height: 100%;
+    width: 100%;
+    background-repeat:no-repeat;
+    background-position:center;
+    position:absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.wht {
+	color: white;
+}
+</style>
+<script>
+function dimOff()
+{
+    document.getElementById("darkLayer").style.display = "none";
+}
+function dimOn()
+{
+    document.getElementById("darkLayer").style.display = "";
+}
+
+var timeCountdown = 4;
+
+var timer = document.getElementById("timer");
+var btn = document.getElementById("closeable");
+
+if (Math.random() > 0.75) { 
+dimOn();
+}
+
+var settableint = setInterval(function(){timeCountdown--;timer.innerHTML= "[" + timeCountdown + "]"; if (timeCountdown<1) {btn.onclick=dimOff;clearInterval(settableint);}},1000); 
+</script>
